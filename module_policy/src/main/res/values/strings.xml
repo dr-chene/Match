@@ -1,0 +1,8 @@
+<resources>
+    <string name="policy_select_country">国家</string>
+    <string name="policy_select_type">类别</string>
+    <string name="policy_select_field">领域</string>
+    <string name="policy_select_issue">颁布单位</string>
+    <string name="policy_select_title">标题</string>
+    <string name="policy_select_time">时效性</string>
+</resources>

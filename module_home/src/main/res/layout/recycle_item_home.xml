@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.viper.module_home.bean.HomeItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/home_rv_avatar"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/nian"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/Avatar" />
+
+        <TextView
+            android:id="@+id/home_rv_field"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="领域"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/home_rv_avatar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="姓名"
+            android:textSize="20sp"
+            app:layout_constraintStart_toEndOf="@id/home_rv_field"
+            app:layout_constraintTop_toTopOf="@id/home_rv_field" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:text="adsngfjknfdiuenkjasdclknnvlANOFLAIOILENIbqnwilasngdflawenflsdnfolasdgvlka;gvaopisdfoas;dasdgl;bh"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/home_rv_field"
+            app:layout_constraintTop_toBottomOf="@id/home_rv_field" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
