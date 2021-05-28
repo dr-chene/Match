@@ -3,6 +3,8 @@ package com.viper.module_main
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.viper.lib_base.view.BaseActivity
+import com.viper.lib_net.MmkvUtils
+import com.viper.lib_net.token
 import com.viper.module_expert.ExpertFragment
 import com.viper.module_home.HomeFragment
 import com.viper.module_main.databinding.ActivityMainBinding
@@ -13,6 +15,7 @@ import com.viper.module_tech.TechFragment
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun onInitView() {
+        token = MmkvUtils.getToken()
         binding.mainViewPager.apply {
             isUserInputEnabled = false
             adapter = object : FragmentStateAdapter(this@MainActivity) {

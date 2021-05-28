@@ -2,50 +2,31 @@ package com.viper.module_home
 
 import android.content.Intent
 import android.view.Gravity
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
-import com.viper.lib_base.showToast
+import android.view.View
+import android.widget.ImageView
+import com.example.module_login.LoginActivity
+import com.google.android.material.imageview.ShapeableImageView
 import com.viper.lib_base.view.BaseFragment
+import com.viper.lib_net.MmkvUtils
+import com.viper.lib_net.showToast
+import com.viper.lib_net.token
 import com.viper.module_footprint.FootprintActivity
 import com.viper.module_home.adapter.HomeRecyclerViewAdapter
-import com.viper.module_home.bean.Banner
 import com.viper.module_home.databinding.FragmentHomeBinding
 import com.viper.module_home.viewmodel.HomeViewModel
 import com.viper.module_info.InfoActivity
 import com.viper.module_service.ServiceActivity
-import com.youth.banner.adapter.BannerImageAdapter
-import com.youth.banner.holder.BannerImageHolder
-import com.youth.banner.indicator.CircleIndicator
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
     private val viewModel by viewModel<HomeViewModel>()
-    private val adapter by inject<HomeRecyclerViewAdapter>()
-    private val banners by lazy {
-        arrayListOf(Banner("", ""))
-    }
+    private val adapter by inject<HomeRecyclerViewAdapter> { parametersOf(viewModel) }
 
     override fun onInitView() {
-        binding.homeContent.homeMain.apply {
-            homeRv.adapter = adapter
-            homeBanner.setAdapter(object : BannerImageAdapter<Banner>(banners) {
-                override fun onBindView(
-                    holder: BannerImageHolder,
-                    data: Banner,
-                    position: Int,
-                    size: Int
-                ) {
-                    Glide.with(holder.itemView)
-                        .load(data.img)
-                        .apply(RequestOptions.bitmapTransform(RoundedCorners(30)))
-                        .into(holder.imageView)
-                }
-            }).addBannerLifecycleObserver(this@HomeFragment)
-                .setIndicator(CircleIndicator(this@HomeFragment.context))
-        }
+        binding.homeContent.homeMain.homeRv.adapter = adapter
     }
 
     override fun onInitAction() {
@@ -81,18 +62,50 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
                 else -> false
             }
         }
-        binding.homeContent.homeMain.apply {
-            homeSearchButton.setOnClickListener {
-                val key = homeSearchBar.text.toString()
-                if (key.isNotBlank()) search(key)
-                else "请输入关键词".showToast()
+        binding.homeContent.homeMain.homeSrl.setOnRefreshListener {
+//            viewModel.refresh()
+        }
+//        binding.homeContent.homeMain.homeSrl.isRefreshing = true
+//        viewModel.refresh()
+        binding.homeNavDrawer.getHeaderView(0).apply {
+            findViewById<ShapeableImageView>(R.id.home_drawer_avatar).setOnClickListener {
+                if (MmkvUtils.getToken() == null) {
+                    startActivity(Intent(this.context, LoginActivity::class.java))
+                }
+            }
+            findViewById<ImageView>(R.id.home_drawer_ic_exit).setOnClickListener {
+                exit()
             }
         }
     }
 
     override fun getContentViewResId() = R.layout.fragment_home
 
-    private fun search(key: String) {
+    override fun onSubscribe() {
+        viewModel.isRefreshing.observe(this) {
+            binding.homeContent.homeMain.homeSrl.isRefreshing = it
+        }
+        viewModel.lists.observe(this) {
+            adapter.submitList(it)
+        }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        binding.homeNavDrawer.getHeaderView(0)
+            .findViewById<ImageView>(R.id.home_drawer_ic_exit).visibility =
+            if (token == null) View.GONE else View.VISIBLE
+    }
+
+    override fun onPause() {
+        super.onPause()
+        binding.homeDrawer.closeDrawer(Gravity.LEFT)
+    }
+
+    private fun exit() {
+        MmkvUtils.clear()
+        binding.homeNavDrawer.getHeaderView(0)
+            .findViewById<ImageView>(R.id.home_drawer_ic_exit).visibility = View.GONE
+        "登出成功".showToast()
     }
 }

@@ -34,5 +34,7 @@ android {
 
 dependencies {
     api project(path: ':lib_base')
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:$kotlin_version"
+//    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
 }

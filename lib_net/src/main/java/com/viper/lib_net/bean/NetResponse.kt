@@ -6,6 +6,6 @@ package com.viper.lib_net.bean
  */
 data class NetResponse<T>(
     val data: T?,
-    val errorCode: Int,
-    val errorMsg: String?
+    val flag: Boolean,
+    val message: String?
 )

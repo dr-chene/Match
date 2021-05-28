@@ -10,6 +10,6 @@ import org.koin.dsl.module
  * desc
  */
 val homeModule = module {
-    single { HomeRecyclerViewAdapter() }
+    single { (vm: HomeViewModel) -> HomeRecyclerViewAdapter(vm) }
     viewModel { HomeViewModel() }
 }

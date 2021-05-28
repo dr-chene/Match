@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="领域"
+            android:text="@{item.filed, default=领域}"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/home_rv_avatar"
             app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="姓名"
+            android:text="@{item.name, default=姓名}"
             android:textSize="20sp"
             app:layout_constraintStart_toEndOf="@id/home_rv_field"
             app:layout_constraintTop_toTopOf="@id/home_rv_field" />

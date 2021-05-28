@@ -1,6 +1,5 @@
 package com.viper.lib_net
 
-import com.viper.lib_base.showToast
 import com.viper.lib_net.bean.NetResponse
 import com.viper.lib_net.bean.NetResult
 import com.viper.lib_net.bean.doFailure
@@ -16,15 +15,13 @@ import kotlinx.coroutines.withContext
  * created by viper on 2021/5/25
  * desc
  */
-private const val SUCCESS = 0
-
 fun <T> NetResponse<T>.request(requestSuccess: ((T) -> Unit)? = null) = flow {
     try {
-        if (this@request.errorCode == SUCCESS) {
+        if (this@request.flag) {
             this@request.data?.let { requestSuccess?.invoke(it) }
             emit(NetResult.Success(this@request.data))
         } else {
-            emit(NetResult.Failure(this@request.errorMsg))
+            emit(NetResult.Failure(this@request.message))
         }
     } catch (e: Exception) {
         emit(NetResult.Failure(e.message))

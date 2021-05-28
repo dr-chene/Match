@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.text.Html" />
+        <variable
+            name="news"
+            type="com.viper.module_news.bean.News" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Match"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/recycle_item_news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="?colorPrimary"
+                android:text="@{news.title, default=月汽车产销等主要指标超过2019年同期}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/recycle_item_news_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@{Html.fromHtml(news.content), default=随着我国经济形势稳定向好中小城市和县乡市场汽车消费潜力逐步释放新能源汽车带动汽车销量增长新车产销量汽车进出口量二手车交易量报废机动车回收量等指标均超过2019年同期水平}"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recycle_item_news_title" />
+
+            <TextView
+                android:id="@+id/recycle_item_news_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/blue_600"
+                android:text="@{news.date, default=2021_03_13}"
+                app:layout_constraintEnd_toEndOf="@id/recycle_item_news_content"
+                app:layout_constraintTop_toBottomOf="@id/recycle_item_news_content" />
+
+            <TextView
+                android:id="@+id/recycle_item_news_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:textColor="?colorPrimaryDark"
+                android:text="@{news.author, default=长城汽车官微}"
+                app:layout_constraintEnd_toStartOf="@id/recycle_item_news_date"
+                app:layout_constraintTop_toBottomOf="@id/recycle_item_news_content"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

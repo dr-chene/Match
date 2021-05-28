@@ -1,5 +1,6 @@
 package com.viper.match
 
+import com.example.module_login.loginModule
 import com.tencent.mmkv.MMKV
 import com.viper.lib_base.BaseApp
 import com.viper.lib_net.netModule
@@ -30,7 +31,7 @@ class App: BaseApp() {
             androidContext(this@App)
             modules(appModule, netModule, homeModule, newsModule,
                 policyModule, techModule, serviceModule, footprintModule,
-                infoModule)
+                infoModule, loginModule)
         }
     }
 }

@@ -1,22 +1,75 @@
 package com.viper.module_news
 
+import android.util.Log
+import com.google.android.material.tabs.TabLayout
 import com.viper.lib_base.view.BaseFragment
+import com.viper.module_news.adapter.NewsRecyclerViewAdapter
 import com.viper.module_news.databinding.FragmentNewsBinding
 import com.viper.module_news.viewmodel.NewsViewModel
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NewsFragment : BaseFragment<FragmentNewsBinding>() {
 
     private val viewModel by viewModel<NewsViewModel>()
+    private val adapter by inject<NewsRecyclerViewAdapter>()
+    private var cate = IAE
 
     override fun onInitView() {
-
+        binding.newsRv.adapter = adapter
     }
 
     override fun onInitAction() {
+        binding.newsTabs.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                tab?.let {
+                    val t = when (it.position) {
+                        0 -> IAE
+                        1 -> AREA
+                        2 -> ENTERPRISE
+                        else -> PAM
+                    }
+                    if (t != cate) {
+                        cate = t
+                        refresh(cate)
+                    }
+                }
+            }
 
+            override fun onTabUnselected(tab: TabLayout.Tab?) {}
+
+            override fun onTabReselected(tab: TabLayout.Tab?) {}
+        })
+        binding.newsSrl.setOnRefreshListener {
+            refresh(cate)
+        }
     }
 
     override fun getContentViewResId() = R.layout.fragment_news
 
+    override fun onSubscribe() {
+        viewModel.lists.observe(this) {
+            Log.d("TAG_", "onSubscribe: $it")
+            adapter.submitList(it)
+        }
+        viewModel.isRefreshing.observe(this) {
+            if (it && !binding.newsSrl.isRefreshing) {
+                binding.newsSrl.isRefreshing = true
+            } else if (!it && binding.newsSrl.isRefreshing) {
+                binding.newsSrl.isRefreshing = false
+            }
+        }
+        refresh(cate)
+    }
+
+    private fun refresh(cate: String, key: String? = null) {
+        viewModel.refresh(cate, key)
+    }
+
+    companion object {
+        private const val IAE = "进出口及其产销数据统计"
+        private const val AREA = "地区"
+        private const val ENTERPRISE = "企业动态"
+        private const val PAM = "进出口产销"
+    }
 }

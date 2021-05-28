@@ -1,5 +1,7 @@
 package com.viper.lib_base
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 /**
@@ -7,4 +9,8 @@ import androidx.lifecycle.ViewModel
  * desc
  */
 abstract class BaseViewModel : ViewModel() {
+
+    val isRefreshing: LiveData<Boolean>
+        get() = refreshing
+    protected val refreshing = MutableLiveData<Boolean>()
 }

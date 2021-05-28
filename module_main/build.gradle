@@ -44,4 +44,5 @@ dependencies {
     api project(path: ':module_tech')
     api project(path: ':module_expert')
     api project(path: ':module_news')
+    api project(path: ':module_login')
 }
