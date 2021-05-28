@@ -49,7 +49,6 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
 
     override fun onSubscribe() {
         viewModel.lists.observe(this) {
-            Log.d("TAG_", "onSubscribe: $it")
             adapter.submitList(it)
         }
         viewModel.isRefreshing.observe(this) {
