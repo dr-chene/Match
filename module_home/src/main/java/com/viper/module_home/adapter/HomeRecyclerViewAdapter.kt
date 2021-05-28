@@ -85,8 +85,7 @@ class HomeRecyclerViewAdapter(private val viewModel: HomeViewModel) :
                         .apply(RequestOptions.bitmapTransform(RoundedCorners(30)))
                         .into(holder.imageView)
                 }
-            }).addBannerLifecycleObserver(binding.lifecycleOwner)
-                .setIndicator(CircleIndicator(binding.root.context))
+            }).addBannerLifecycleObserver(binding.lifecycleOwner).indicator = CircleIndicator(binding.root.context)
             binding.homeSearchButton.setOnClickListener {
                 val key = binding.homeSearchBar.text.toString()
                 if (key.isNotBlank()) search(key)

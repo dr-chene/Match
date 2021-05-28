@@ -3,7 +3,8 @@
     package="com.viper.module_main">
 
     <application>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/DrawerTrans">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

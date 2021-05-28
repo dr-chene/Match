@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.viper.module_drawer">
+
+    <application>
+        <activity
+            android:name=".DrawerActivity"
+            android:theme="@style/DrawerTrans"></activity>
+    </application>
+
+</manifest>

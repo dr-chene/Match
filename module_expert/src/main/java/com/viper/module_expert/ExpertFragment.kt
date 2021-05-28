@@ -15,13 +15,7 @@ class ExpertFragment : BaseFragment<FragmentExpertBinding>() {
 
     override fun onInitAction() {
         binding.expertFabChange.setOnClickListener {
-            if (binding.expertTitle.text == "专家") {
-                binding.expertTitle.text = "机构"
-                loadAgency()
-            } else {
-                binding.expertTitle.text = "专家"
-                loadExpert()
-            }
+
         }
     }
 

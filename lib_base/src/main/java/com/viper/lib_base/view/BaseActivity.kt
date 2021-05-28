@@ -1,10 +1,7 @@
 package com.viper.lib_base.view
 
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
@@ -18,11 +15,15 @@ abstract class BaseActivity<T: ViewDataBinding>: AppCompatActivity(), IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        onTrans()
         binding = DataBindingUtil.setContentView(this, getContentViewResId())
         onInitView()
         onInitAction()
         onSubscribe()
+    }
+
+    open fun onTrans(){
+
     }
 
 //    //使状态栏透明

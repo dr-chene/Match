@@ -4,88 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ExpertFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/Theme.Match">
 
-        <View
-            android:id="@+id/expert_actionbar"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@drawable/bg_actionbar"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/expert_title_expert"-->
-        <!--            android:layout_width="100dp"-->
-        <!--            android:layout_height="40dp"-->
-        <!--            android:layout_marginBottom="8dp"-->
-        <!--            android:background="@drawable/bg_expert_title"-->
-        <!--            android:elevation="1dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="专家"-->
-        <!--            android:textColor="#FF3D00"-->
-        <!--            android:textSize="18sp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/expert_line"-->
-        <!--            app:layout_constraintEnd_toStartOf="@id/expert_title_agency"-->
-        <!--            app:layout_constraintHorizontal_chainStyle="spread"-->
-        <!--            app:layout_constraintStart_toStartOf="parent" />-->
-
-        <!--        <TextView-->
-        <!--            android:id="@+id/expert_title_agency"-->
-        <!--            android:layout_width="100dp"-->
-        <!--            android:layout_height="40dp"-->
-        <!--            android:background="@drawable/bg_expert_title"-->
-        <!--            android:elevation="1dp"-->
-        <!--            android:gravity="center"-->
-        <!--            android:text="机构"-->
-        <!--            android:textColor="#FF3D00"-->
-        <!--            android:textSize="18sp"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/expert_title_expert"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toEndOf="@id/expert_title_expert"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/expert_title_expert" />-->
-
-
-        <!--        <ImageView-->
-        <!--            android:layout_width="30dp"-->
-        <!--            android:layout_height="0dp"-->
-        <!--            android:src="@drawable/ic_search_white"-->
-        <!--            app:layout_constraintBottom_toBottomOf="@id/expert_title_expert"-->
-        <!--            app:layout_constraintDimensionRatio="1"-->
-        <!--            app:layout_constraintEnd_toEndOf="parent"-->
-        <!--            app:layout_constraintStart_toStartOf="parent"-->
-        <!--            app:layout_constraintTop_toTopOf="@id/expert_title_expert" />-->
-
-        <TextView
-            android:id="@+id/expert_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/toolbar_margin_bottom"
-            android:text="专家"
-            android:textColor="@color/white"
-            android:textSize="@dimen/toolbar_title_size"
-            app:layout_constraintBottom_toBottomOf="@id/expert_actionbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="0dp"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/ic_search_white"
-            app:layout_constraintBottom_toBottomOf="@id/expert_title"
-            app:layout_constraintDimensionRatio="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/expert_title" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/expert_actionbar">
+            android:layout_height="match_parent"
+            android:theme="@style/Theme.Match">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -138,10 +67,9 @@
             android:id="@+id/expert_fab_change"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
             android:layout_margin="16dp"
             android:src="@drawable/ic_change"
-            app:fabSize="mini"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:fabSize="mini" />
+    </FrameLayout>
 </layout>

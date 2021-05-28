@@ -39,8 +39,8 @@ android {
 
 dependencies {
     implementation project(path: ':lib_net')
-
-    implementation "io.github.youth5201314:banner:2.2.2"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    api project(path: ':module_info')
+    api project(path: ':module_service')
+    api project(path: ':module_footprint')
+    api project(path: ':module_login')
 }
