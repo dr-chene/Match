@@ -8,38 +8,38 @@
         android:theme="@style/Theme.Match">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/policy2_search"
+            android:id="@+id/tech2_search"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="输入点什么吧......"
             app:boxStrokeWidth="1dp"
             app:endIconMode="clear_text"
-            app:layout_constraintEnd_toStartOf="@id/policy2_btn_search"
+            app:layout_constraintEnd_toStartOf="@id/tech2_btn_search"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/policy2_search_text"
+                android:id="@+id/tech2_search_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/policy2_btn_search"
+            android:id="@+id/tech2_btn_search"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginEnd="5dp"
             android:text="搜索"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="@id/policy2_select"
-            app:layout_constraintEnd_toStartOf="@id/policy2_select"
+            app:layout_constraintBottom_toBottomOf="@id/tech2_select"
+            app:layout_constraintEnd_toStartOf="@id/tech2_select"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/policy2_select" />
+            app:layout_constraintTop_toTopOf="@id/tech2_select" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/policy2_select"
+            android:id="@+id/tech2_select"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -49,11 +49,11 @@
             app:boxStrokeWidth="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/policy2_btn_search"
-            app:layout_constraintTop_toBottomOf="@id/policy2_search">
+            app:layout_constraintStart_toEndOf="@id/tech2_btn_search"
+            app:layout_constraintTop_toBottomOf="@id/tech2_search">
 
             <AutoCompleteTextView
-                android:id="@+id/policy2_select_text"
+                android:id="@+id/tech2_select_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="选择类别"

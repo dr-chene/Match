@@ -1,8 +1,11 @@
 package com.viper.module_news
 
-import android.util.Log
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
+import com.viper.lib_base.VerticalItemDecoration
+import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
+import com.viper.lib_net.showToast
 import com.viper.module_news.adapter.NewsRecyclerViewAdapter
 import com.viper.module_news.databinding.FragmentNewsBinding
 import com.viper.module_news.viewmodel.NewsViewModel
@@ -17,6 +20,7 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
 
     override fun onInitView() {
         binding.newsRv.adapter = adapter
+        binding.newsRv.addItemDecoration(VerticalItemDecoration(dip2px(10F, this.requireContext())))
     }
 
     override fun onInitAction() {
@@ -42,6 +46,11 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
         })
         binding.newsSrl.setOnRefreshListener {
             refresh(cate)
+        }
+        binding.newsSearchBtn.setOnClickListener {
+            val key = binding.newsSearch.text.toString()
+            if (key.isNotBlank()) refresh(cate, key)
+            else refresh(cate)
         }
     }
 

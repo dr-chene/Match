@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="expert"
+            type="com.viper.module_expert.bean.Expert2" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:theme="@style/Theme.Match">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/expert2_expert_avatar"
+                bindImg="@{expert.image}"
+                android:layout_width="60dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/expert2_expert_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@{expert.name, default=于可}"
+                android:textColor="@color/blue_800"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/expert2_expert_identification"
+                app:layout_constraintStart_toEndOf="@id/expert2_expert_avatar" />
+
+            <TextView
+                android:id="@+id/expert2_expert_identification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{expert.identification, default=立德律师事务所合伙人}"
+                android:textColor="@color/blue_600"
+                app:layout_constraintBottom_toBottomOf="@id/expert2_expert_avatar"
+                app:layout_constraintStart_toStartOf="@id/expert2_expert_name" />
+
+            <TextView
+                android:id="@+id/expert2_expert_resume_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="个人简介："
+                android:textColor="#BDBDBD"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/expert2_expert_avatar"
+                app:layout_constraintTop_toBottomOf="@id/expert2_expert_avatar" />
+
+            <TextView
+                android:id="@+id/expert2_expert_resume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{expert.resume, default=于2010年以优异的成绩获得维拉诺瓦大学法学院的法律博士学位在校期间她曾任维拉诺瓦大学法律评论的成员此外还同时拥有新加坡国立大学国际商法法律硕士学位以及德克萨斯AM大学金融学士学位。}"
+                android:textColor="@color/blue_800"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/expert2_expert_resume_head" />
+
+            <TextView
+                android:id="@+id/expert2_expert_blogs_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已发表文章数："
+                android:textColor="#BDBDBD"
+                app:layout_constraintBottom_toBottomOf="@id/expert2_expert_resume_head"
+                app:layout_constraintEnd_toStartOf="@id/expert2_expert_blogs" />
+
+            <TextView
+                android:id="@+id/expert2_expert_blogs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:text="@{String.valueOf(expert.blogs.size()), default=3}"
+                android:textColor="?colorPrimary"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@id/expert2_expert_blogs_head"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

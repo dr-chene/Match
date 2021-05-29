@@ -3,6 +3,8 @@ package com.viper.module_policy
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import com.viper.lib_base.VerticalItemDecoration
+import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
 import com.viper.lib_net.showToast
 import com.viper.module_policy.adapter.PolicyRecyclerViewAdapter
@@ -21,6 +23,7 @@ class PolicyFragment : BaseFragment<FragmentPolicy2Binding>() {
 
     override fun onInitView() {
         binding.policy2Rv.adapter = adapter
+        binding.policy2Rv.addItemDecoration(VerticalItemDecoration(dip2px(10F, this.requireContext())))
         initCate()
     }
 

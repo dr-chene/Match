@@ -50,7 +50,7 @@ class DrawerActivity : BaseActivity<ActivityDrawerBinding>() {
         binding.drawerMyTools.setOnClickListener {
             "功能暂未开放".showToast()
         }
-        binding.drawerExit.setOnClickListener {
+        binding.drawerExitAction.setOnClickListener {
             onBackPressed()
         }
     }

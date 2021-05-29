@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/policy2_srl"
+        android:id="@+id/tech2_srl"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/Theme.Match">
@@ -18,8 +18,8 @@
                 android:layout_height="match_parent">
 
                 <include
-                    android:id="@+id/policy2_header"
-                    layout="@layout/include_policy2_header"
+                    android:id="@+id/tech2_header"
+                    layout="@layout/include_tech2_header"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -28,13 +28,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/policy2_rv"
+                    android:id="@+id/tech2_rv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/policy2_header"
-                    tools:listitem="@layout/recycle_item_policy2" />
+                    app:layout_constraintTop_toBottomOf="@id/tech2_header"
+                    tools:listitem="@layout/recycle_item_tech2" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -4,6 +4,7 @@ import com.example.module_login.loginModule
 import com.tencent.mmkv.MMKV
 import com.viper.lib_base.BaseApp
 import com.viper.lib_net.netModule
+import com.viper.module_expert.expertModule
 import com.viper.module_footprint.footprintModule
 import com.viper.module_home.homeModule
 import com.viper.module_info.infoModule
@@ -30,7 +31,7 @@ class App: BaseApp() {
             androidLogger(level = Level.DEBUG)
             androidContext(this@App)
             modules(appModule, netModule, homeModule, newsModule,
-                policyModule, techModule, serviceModule, footprintModule,
+                policyModule, techModule, expertModule, serviceModule, footprintModule,
                 infoModule, loginModule)
         }
     }
