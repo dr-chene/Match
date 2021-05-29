@@ -1,11 +1,9 @@
 package com.viper.module_news
 
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import com.viper.lib_base.VerticalItemDecoration
 import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
-import com.viper.lib_net.showToast
 import com.viper.module_news.adapter.NewsRecyclerViewAdapter
 import com.viper.module_news.databinding.FragmentNewsBinding
 import com.viper.module_news.viewmodel.NewsViewModel

@@ -7,8 +7,8 @@
         <import type="android.text.Html" />
 
         <variable
-            name="news"
-            type="com.viper.module_news.bean.News" />
+            name="article"
+            type="com.viper.lib_net.bean.Article" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{news.title, default=月汽车产销等主要指标超过2019年同期}"
+                android:text="@{article.title, default=月汽车产销等主要指标超过2019年同期}"
                 android:textColor="?colorPrimary"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{Html.fromHtml(news.content), default=随着我国经济形势稳定向好中小城市和县乡市场汽车消费潜力逐步释放新能源汽车带动汽车销量增长新车产销量汽车进出口量二手车交易量报废机动车回收量等指标均超过2019年同期水平}"
+                android:text="@{Html.fromHtml(article.content), default=随着我国经济形势稳定向好中小城市和县乡市场汽车消费潜力逐步释放新能源汽车带动汽车销量增长新车产销量汽车进出口量二手车交易量报废机动车回收量等指标均超过2019年同期水平}"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/recycle_item_news_title" />
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:text="@{news.date, default=2021_03_13}"
+                android:text="@{article.date, default=2021_03_13}"
                 android:textColor="@color/blue_600"
                 app:layout_constraintEnd_toEndOf="@id/recycle_item_news_content"
                 app:layout_constraintTop_toBottomOf="@id/recycle_item_news_content" />
@@ -57,7 +57,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{news.author, default=长城汽车官微}"
+                android:text="@{article.author, default=长城汽车官微}"
                 android:textColor="?colorPrimaryDark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/recycle_item_news_date"

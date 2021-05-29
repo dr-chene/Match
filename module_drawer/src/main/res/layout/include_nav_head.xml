@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/drawer_header"
+            android:layout_width="match_parent"
+            android:layout_height="172dp"
+            android:background="@drawable/bg_drawer_header"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/drawer_avatar"
+            bindImg="@{}"
+            android:src="@drawable/ic_default_avatar_white"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_margin="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/drawer_header"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintStart_toStartOf="@id/drawer_header" />
+
+        <ImageView
+            android:id="@+id/drawer_exit"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="32dp"
+            android:clickable="false"
+            android:src="@drawable/ic_exit_white"
+            app:layout_constraintEnd_toEndOf="@id/drawer_header"
+            app:layout_constraintTop_toTopOf="@id/drawer_header" />
+
+        <View
+            android:id="@+id/drawer_exit_action"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:layout_constraintBottom_toBottomOf="@id/drawer_exit"
+            app:layout_constraintEnd_toEndOf="@id/drawer_exit"
+            app:layout_constraintStart_toStartOf="@id/drawer_exit"
+            app:layout_constraintTop_toTopOf="@id/drawer_exit" />
+
+        <TextView
+            android:id="@+id/drawer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="名字"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/drawer_email"
+            app:layout_constraintStart_toEndOf="@id/drawer_avatar" />
+
+        <TextView
+            android:id="@+id/drawer_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="联系方式"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/drawer_avatar"
+            app:layout_constraintStart_toStartOf="@id/drawer_name" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

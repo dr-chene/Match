@@ -6,8 +6,10 @@ import android.transition.Slide
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.module_login.LoginActivity
 import com.viper.lib_base.view.BaseActivity
 import com.viper.lib_net.MmkvUtils
+import com.viper.lib_net.showToast
 import com.viper.lib_net.token
 import com.viper.module_drawer.DrawerActivity
 import com.viper.module_expert.ExpertFragment
@@ -16,17 +18,11 @@ import com.viper.module_main.databinding.ActivityMainBinding
 import com.viper.module_news.NewsFragment
 import com.viper.module_policy.PolicyFragment
 import com.viper.module_tech.TechFragment
+import kotlinx.coroutines.delay
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
-    override fun onTrans() {
-//        with(window) {
-//            Slide(Gravity.END).let {
-//                exitTransition = it
-//                reenterTransition = it
-//            }
-//        }
-    }
+    private var select = R.id.nav_home
 
     override fun onInitView() {
         token = MmkvUtils.getToken()
@@ -52,6 +48,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             when (it.itemId) {
                 R.id.main_exit -> {
                     MmkvUtils.clear()
+                    "退出登录成功".showToast()
+                    nav(0, R.id.nav_home)
                     true
                 }
                 else -> false
@@ -63,23 +61,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.mainNavBottom.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_home -> {
-                    nav(0)
+                    nav(0, R.id.nav_home)
                     true
                 }
                 R.id.nav_info -> {
-                    nav(1)
+                    nav(1, R.id.nav_info)
                     true
                 }
                 R.id.nav_policy -> {
-                    nav(2)
+                    nav(2, R.id.nav_policy)
                     true
                 }
                 R.id.nav_tech -> {
-                    nav(3)
+                    nav(3, R.id.nav_tech)
                     true
                 }
                 R.id.nav_expert -> {
-                    nav(4)
+                    nav(4, R.id.nav_expert)
                     true
                 }
                 else -> false
@@ -95,7 +93,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun getContentViewResId() = R.layout.activity_main
 
-    private fun nav(pos: Int) {
+    private fun nav(pos: Int, id: Int) {
+        if (pos > 0 && MmkvUtils.getToken() == null){
+            "请登录后查看".showToast()
+            startActivity(Intent(this, LoginActivity::class.java))
+            return
+        }
         binding.mainViewPager.setCurrentItem(pos, false)
         binding.mainToolbar.title = when (pos) {
             1 -> "信息资料"
@@ -104,5 +107,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             4 -> "专家对接"
             else -> null
         }
+        select = id
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        binding.mainNavBottom.selectedItemId = select
     }
 }

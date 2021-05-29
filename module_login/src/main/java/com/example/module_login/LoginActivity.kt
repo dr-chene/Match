@@ -105,6 +105,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     private fun loginSuccess() {
-        finish()
+        onBackPressed()
     }
 }

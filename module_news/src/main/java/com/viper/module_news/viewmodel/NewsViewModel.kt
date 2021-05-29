@@ -3,6 +3,7 @@ package com.viper.module_news.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.viper.lib_base.BaseViewModel
+import com.viper.lib_net.bean.Article
 import com.viper.lib_net.request
 import com.viper.lib_net.result
 import com.viper.module_news.bean.News
@@ -19,9 +20,9 @@ class NewsViewModel(
     private val repository: NewsRepository
 ) : BaseViewModel() {
 
-    val lists: LiveData<List<News>>
+    val lists: LiveData<List<Article>>
         get() = _lists
-    private val _lists = MutableLiveData<List<News>>()
+    private val _lists = MutableLiveData<List<Article>>()
 
     fun refresh(cate: String, key: String? = null){
         refreshing.postValue(true)

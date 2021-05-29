@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.viper.module_expert.bean.Expert2
+import com.viper.module_expert.bean.Expert2DiffCallBack
 import com.viper.module_expert.databinding.RecycleItemExpert2Binding
 
 /**
@@ -13,7 +14,7 @@ import com.viper.module_expert.databinding.RecycleItemExpert2Binding
  */
 class Expert2RecyclerViewAdapter(
     private val blog: (Expert2) -> Unit
-) : ListAdapter<Expert2, Expert2ViewHolder>(Expert2.Expert2DiffCallBack) {
+) : ListAdapter<Expert2, Expert2ViewHolder>(Expert2DiffCallBack) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Expert2ViewHolder {
         return Expert2ViewHolder(
             RecycleItemExpert2Binding.inflate(
@@ -34,7 +35,7 @@ class Expert2ViewHolder(
 
     fun bind(expert: Expert2) {
         binding.expert = expert
-        binding.expert2ExpertBlogs.setOnClickListener {
+        binding.root.setOnClickListener {
             blog(expert)
         }
         binding.executePendingBindings()

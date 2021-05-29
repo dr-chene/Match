@@ -17,7 +17,8 @@ object MmkvUtils {
 
     fun getToken() = kv?.decodeString(TOKEN)
 
-    fun clear(){
+    fun clear() {
         kv?.clearAll()
+        token = null
     }
 }

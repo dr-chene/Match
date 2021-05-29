@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.imageview.ShapeableImageView
+        <ImageView
             android:id="@+id/info_avatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -47,8 +47,7 @@
             android:src="@drawable/nian"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/info_line"
-            app:shapeAppearanceOverlay="@style/Avatar" />
+            app:layout_constraintTop_toBottomOf="@id/info_line" />
 
         <TextView
             android:id="@+id/info_tv_info"

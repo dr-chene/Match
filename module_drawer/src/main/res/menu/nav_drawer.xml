@@ -2,29 +2,29 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group>
         <item
-            android:id="@+id/home_my_info"
+            android:id="@+id/drawer_my_info"
             android:title="我的信息" />
 
         <item
-            android:id="@+id/home_my_footprint"
+            android:id="@+id/drawer_my_footprint"
             android:title="我的足迹" />
 
         <item
-            android:id="@+id/home_my_wallet"
+            android:id="@+id/drawer_my_wallet"
             android:title="钱包" />
     </group>
 
     <group>
         <item
-            android:id="@+id/home_my_service"
+            android:id="@+id/drawer_my_service"
             android:title="专家服务" />
 
         <item
-            android:id="@+id/home_my_commitment"
+            android:id="@+id/drawer_my_commitment"
             android:title="我的承诺" />
 
         <item
-            android:id="@+id/home_my_tools"
+            android:id="@+id/drawer_my_tools"
             android:title="常用" />
     </group>
 </menu>

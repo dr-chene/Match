@@ -1,5 +1,6 @@
 package com.viper.module_expert
 
+import android.content.Intent
 import android.util.Log
 import android.view.MotionEvent
 import androidx.recyclerview.widget.RecyclerView
@@ -92,10 +93,18 @@ class ExpertFragment : BaseFragment<FragmentExpert2Binding>() {
     }
 
     private fun select(article: Article) {
-        Log.d("TAG_", "select: $article")
+        val expert = Expert2("is", "is", "is", "is", listOf(article), true)
+        Log.d("TAG_", "select: $expert")
+        Intent(this.context, DetailActivity::class.java).apply {
+            putExtra("expert", expert)
+            startActivity(this)
+        }
     }
 
     private fun blog(expert: Expert2) {
-        Log.d("TAG_", "blog: $expert")
+        Intent(this.context, DetailActivity::class.java).apply {
+            putExtra("expert", expert)
+            startActivity(this)
+        }
     }
 }
