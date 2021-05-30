@@ -15,15 +15,10 @@ abstract class BaseActivity<T: ViewDataBinding>: AppCompatActivity(), IView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        onTrans()
         binding = DataBindingUtil.setContentView(this, getContentViewResId())
         onInitView()
         onInitAction()
         onSubscribe()
-    }
-
-    open fun onTrans(){
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
