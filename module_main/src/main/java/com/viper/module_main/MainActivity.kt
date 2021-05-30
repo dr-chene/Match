@@ -3,7 +3,6 @@ package com.viper.module_main
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.viper.lib_base.view.BaseActivity
-import com.viper.module_drawer.DrawerFragment
 import com.viper.module_main.databinding.ActivityMainBinding
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -29,10 +28,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
     override fun getContentViewResId() = R.layout.activity_main
 
     fun navToDrawer(){
-        binding.main2ViewPager.currentItem = 0
+        binding.main2ViewPager.setCurrentItem(0, true)
     }
 
     fun navToMain(){
-        binding.main2ViewPager.currentItem = 1
+        binding.main2ViewPager.setCurrentItem(1, true)
     }
 }

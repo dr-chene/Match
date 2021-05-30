@@ -1,4 +1,4 @@
-package com.viper.module_drawer
+package com.viper.module_main
 
 import android.app.Activity
 import android.content.Intent
@@ -8,9 +8,9 @@ import com.example.module_login.LoginActivity
 import com.viper.lib_base.view.BaseFragment
 import com.viper.lib_net.MmkvUtils
 import com.viper.lib_net.showToast
-import com.viper.module_drawer.databinding.FragmentDrawerBinding
 import com.viper.module_footprint.FootprintActivity
 import com.viper.module_info.InfoActivity
+import com.viper.module_main.databinding.FragmentDrawerBinding
 import com.viper.module_service.ServiceActivity
 
 class DrawerFragment : BaseFragment<FragmentDrawerBinding>() {
@@ -47,6 +47,9 @@ class DrawerFragment : BaseFragment<FragmentDrawerBinding>() {
                     }
                     else -> false
                 }
+            }
+            getHeaderView(0).findViewById<View>(R.id.drawer_exit).setOnClickListener {
+                (activity as MainActivity).navToMain()
             }
             getHeaderView(0).findViewById<ImageView>(R.id.drawer_avatar).setOnClickListener {
                 navActivity<LoginActivity>(false)
