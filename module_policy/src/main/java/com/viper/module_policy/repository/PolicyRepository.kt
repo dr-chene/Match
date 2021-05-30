@@ -1,6 +1,6 @@
 package com.viper.module_policy.repository
 
-import com.viper.lib_net.article.ArticleRepository
+import com.viper.module_article.article.ArticleRepository
 import com.viper.module_policy.remote.PolicyService
 
 /**
@@ -9,4 +9,4 @@ import com.viper.module_policy.remote.PolicyService
  */
 class PolicyRepository(
     api: PolicyService
-): ArticleRepository<PolicyService>(api)
+): com.viper.module_article.article.ArticleRepository<PolicyService>(api)

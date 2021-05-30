@@ -1,7 +1,7 @@
 package com.viper.module_policy.viewmodel
 
 import com.viper.lib_base.BaseViewModel
-import com.viper.lib_net.article.ArticleViewModel
+import com.viper.module_article.article.ArticleViewModel
 import com.viper.module_policy.remote.PolicyService
 import com.viper.module_policy.repository.PolicyRepository
 
@@ -11,4 +11,4 @@ import com.viper.module_policy.repository.PolicyRepository
  */
 class PolicyViewModel(
     repository: PolicyRepository
-): ArticleViewModel<PolicyService>(repository)
+): com.viper.module_article.article.ArticleViewModel<PolicyService>(repository)

@@ -1,6 +1,6 @@
 package com.viper.module_tech.viewmodel
 
-import com.viper.lib_net.article.ArticleViewModel
+import com.viper.module_article.article.ArticleViewModel
 import com.viper.module_tech.remote.TechService
 import com.viper.module_tech.repository.TechRepository
 
@@ -10,4 +10,4 @@ import com.viper.module_tech.repository.TechRepository
  */
 class TechViewModel(
     repository: TechRepository
-) : ArticleViewModel<TechService>(repository)
+) : com.viper.module_article.article.ArticleViewModel<TechService>(repository)

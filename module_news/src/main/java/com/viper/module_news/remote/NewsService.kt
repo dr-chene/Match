@@ -1,8 +1,7 @@
 package com.viper.module_news.remote
 
-import com.viper.lib_net.bean.Article
+import com.viper.module_article.article.Article
 import com.viper.lib_net.bean.NetResponse
-import com.viper.module_news.bean.News
 import okhttp3.RequestBody
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -16,5 +15,5 @@ interface NewsService {
     @POST("/blog/getInfoPlateBlogs")
     suspend fun getNews(
         @Body json: RequestBody
-    ): NetResponse<List<Article>>
+    ): NetResponse<List<com.viper.module_article.article.Article>>
 }

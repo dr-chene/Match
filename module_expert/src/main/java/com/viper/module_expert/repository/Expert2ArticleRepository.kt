@@ -1,6 +1,6 @@
 package com.viper.module_expert.repository
 
-import com.viper.lib_net.article.ArticleRepository
+import com.viper.module_article.article.ArticleRepository
 import com.viper.module_expert.remote.Expert2ArticleService
 
 /**
@@ -9,4 +9,4 @@ import com.viper.module_expert.remote.Expert2ArticleService
  */
 class Expert2ArticleRepository(
     api: Expert2ArticleService
-): ArticleRepository<Expert2ArticleService>(api)
+): com.viper.module_article.article.ArticleRepository<Expert2ArticleService>(api)

@@ -10,14 +10,12 @@ class InfoActivity : BaseActivity<ActivityInfoBinding>() {
     private val viewModel by viewModel<InfoViewModel>()
 
     override fun onInitView() {
-
+        title = null
+        setSupportActionBar(binding.infoToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun onInitAction() {
-        binding.infoIcBack.setOnClickListener {
-            onBackPressed()
-        }
-    }
+    override fun onInitAction() {}
 
     override fun getContentViewResId() = R.layout.activity_info
 }

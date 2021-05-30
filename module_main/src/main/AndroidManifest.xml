@@ -3,9 +3,11 @@
     package="com.viper.module_main">
 
     <application>
-        <activity android:name=".MainActivity"
-            android:theme="@style/DrawerTrans"
-            android:launchMode="singleTask">
+        <activity android:name=".Main2Activity"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/DrawerTrans">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,6 +1,6 @@
 package com.viper.module_policy
 
-import com.viper.lib_net.article.ArticleViewModel
+import com.viper.module_article.article.ArticleViewModel
 import com.viper.module_policy.adapter.PolicyRecyclerViewAdapter
 import com.viper.module_policy.remote.PolicyService
 import com.viper.module_policy.repository.PolicyRepository

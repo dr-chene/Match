@@ -39,5 +39,6 @@ android {
 
 dependencies {
     implementation project(path: ':lib_net')
+    implementation project(path: ':module_article')
 }
 

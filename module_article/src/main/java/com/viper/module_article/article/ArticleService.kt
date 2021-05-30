@@ -1,6 +1,5 @@
-package com.viper.lib_net.article
+package com.viper.module_article.article
 
-import com.viper.lib_net.bean.Article
 import com.viper.lib_net.bean.NetResponse
 import okhttp3.RequestBody
 
@@ -9,7 +8,6 @@ import okhttp3.RequestBody
  * desc
  */
 interface ArticleService {
-
     suspend fun getArticles(
         json: RequestBody
     ): NetResponse<List<Article>>

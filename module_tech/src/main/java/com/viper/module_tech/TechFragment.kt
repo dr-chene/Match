@@ -2,6 +2,7 @@ package com.viper.module_tech
 
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.core.widget.addTextChangedListener
 import com.viper.lib_base.VerticalItemDecoration
 import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
@@ -37,6 +38,9 @@ class TechFragment : BaseFragment<FragmentTech2Binding>() {
                 }
                 refresh(cate, key)
             }
+        }
+        binding.tech2Header.tech2SelectText.addTextChangedListener {
+            refresh(it.toString())
         }
         binding.tech2Srl.setOnRefreshListener {
             val cate = binding.tech2Header.tech2SelectText.text.toString()

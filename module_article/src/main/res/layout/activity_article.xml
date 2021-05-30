@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ArticleActivity">
+
+    <data>
+
+        <import type="android.text.Html" />
+
+        <variable
+            name="article"
+            type="com.viper.module_article.article.Article" />
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:theme="@style/Theme.Match">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/article_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@drawable/bg_actionbar"
+            android:fitsSystemWindows="true"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="文章详情"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:gravity="bottom"
+                android:textSize="18sp"
+                android:paddingBottom="10dp"/>
+        </com.google.android.material.appbar.MaterialToolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:id="@+id/article_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{article.category, default=进出口产销}"
+                    android:textColor="@color/blue_600"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/article_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{article.title, default=月份国民经济持续稳定恢复}"
+                    android:textColor="?colorPrimary"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@id/article_category" />
+
+                <TextView
+                    android:id="@+id/article_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{article.date, default=2021_5_30}"
+                    android:textColor="@color/blue_700"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/article_title" />
+
+                <TextView
+                    android:id="@+id/article_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@{article.author, default=国家统计局}"
+                    android:textColor="@color/blue_700"
+                    app:layout_constraintEnd_toStartOf="@id/article_date"
+                    app:layout_constraintTop_toTopOf="@id/article_date" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{Html.fromHtml(article.content), default=月份各地区各部门以习近平新时代中国特色社会主义思想为指导坚决贯彻落实党中央国务院决策部署统筹疫情防控和经济社会发展积极成效持续显现生产稳中有升需求企稳回暖就业继续改善物价总体平稳市场预期向好国民经济运行延续稳定恢复态势}"
+                    android:textSize="16sp"
+                    app:layout_constraintTop_toBottomOf="@id/article_author" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

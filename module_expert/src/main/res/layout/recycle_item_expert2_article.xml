@@ -5,7 +5,7 @@
 
         <variable
             name="article"
-            type="com.viper.lib_net.bean.Article" />
+            type="com.viper.module_article.article.Article" />
     </data>
 
     <TextView

@@ -10,14 +10,12 @@ class FootprintActivity : BaseActivity<ActivityFootprintBinding>() {
     private val viewModel by viewModel<FootprintViewModel>()
 
     override fun onInitView() {
-
+        title = null
+        setSupportActionBar(binding.footprintToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun onInitAction() {
-        binding.footprintIcBack.setOnClickListener {
-            onBackPressed()
-        }
-    }
+    override fun onInitAction() {}
 
     override fun getContentViewResId() = R.layout.activity_footprint
 

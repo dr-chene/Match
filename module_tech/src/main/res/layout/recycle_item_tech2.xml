@@ -3,12 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
-        <import type="android.text.Html" />
-
         <variable
             name="tech"
-            type="com.viper.lib_net.bean.Article" />
+            type="com.viper.module_article.article.Article" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,11 +24,12 @@
                 android:id="@+id/tech2_item_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="@{tech.title, default=汽车零部件再制造规范管理暂行办法}"
-                android:textColor="?colorPrimary"
+                android:textColor="@color/blue_600"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@id/tech2_item_author" />
 
             <TextView
                 android:id="@+id/tech2_item_author"
@@ -47,19 +45,10 @@
                 android:id="@+id/tech2_item_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:layout_marginEnd="10dp"
                 android:text="@{tech.date, default=2021_5_28}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tech2_item_title" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@{Html.fromHtml(tech.content), default=sghdfhysrthgsredfgeswrg}"
-                android:textSize="16sp"
-                app:layout_constraintTop_toBottomOf="@id/tech2_item_date" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

@@ -13,15 +13,14 @@ class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
     private val adapter by inject<ServiceRecyclerViewAdapter>()
 
     override fun onInitView() {
+        title = null
+        setSupportActionBar(binding.serviceToolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.serviceChipAll.isChecked = true
         binding.serviceRv.adapter = adapter
     }
 
-    override fun onInitAction() {
-        binding.serviceIcBack.setOnClickListener {
-            onBackPressed()
-        }
-    }
+    override fun onInitAction() {}
 
     override fun getContentViewResId() = R.layout.activity_service
 }

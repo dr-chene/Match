@@ -1,6 +1,5 @@
-package com.viper.lib_net.article
+package com.viper.module_article.article
 
-import com.viper.lib_net.bean.Article
 import com.viper.lib_net.bean.NetResponse
 import com.viper.lib_net.toJson
 import org.json.JSONObject

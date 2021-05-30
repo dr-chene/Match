@@ -1,6 +1,6 @@
 package com.viper.module_tech.repository
 
-import com.viper.lib_net.article.ArticleRepository
+import com.viper.module_article.article.ArticleRepository
 import com.viper.module_tech.remote.TechService
 
 /**
@@ -9,4 +9,4 @@ import com.viper.module_tech.remote.TechService
  */
 class TechRepository(
     api: TechService
-) : ArticleRepository<TechService>(api)
+) : com.viper.module_article.article.ArticleRepository<TechService>(api)

@@ -1,10 +1,5 @@
 package com.viper.lib_net
-
-import com.viper.lib_net.article.ArticleRepository
-import com.viper.lib_net.article.ArticleService
-import com.viper.lib_net.article.ArticleViewModel
 import okhttp3.OkHttpClient
-import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

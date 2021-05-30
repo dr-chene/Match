@@ -1,14 +1,12 @@
 package com.viper.module_expert
 
 import android.content.Intent
-import android.util.Log
-import android.view.MotionEvent
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
 import com.viper.lib_base.VerticalItemDecoration
 import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
-import com.viper.lib_net.bean.Article
+import com.viper.module_article.article.Article
+import com.viper.module_article.article.onClick
 import com.viper.module_expert.adapter.Expert2ArticleRecyclerViewAdapter
 import com.viper.module_expert.adapter.Expert2RecyclerViewAdapter
 import com.viper.module_expert.bean.Expert2
@@ -26,7 +24,7 @@ class ExpertFragment : BaseFragment<FragmentExpert2Binding>() {
     private var cate = "专题"
     private val topics = arrayListOf<Article>()
     private val hotspots = arrayListOf<Article>()
-    private val articleAdapter by inject<Expert2ArticleRecyclerViewAdapter> { parametersOf(this::select) }
+    private val articleAdapter by inject<Expert2ArticleRecyclerViewAdapter>()
     private val expertAdapter by inject<Expert2RecyclerViewAdapter> { parametersOf(this::blog) }
 
     override fun onInitView() {
@@ -90,15 +88,6 @@ class ExpertFragment : BaseFragment<FragmentExpert2Binding>() {
     private fun refresh() {
         expertViewModel.refresh()
         articleViewModel.refresh(cate)
-    }
-
-    private fun select(article: Article) {
-        val expert = Expert2("is", "is", "is", "is", listOf(article), true)
-        Log.d("TAG_", "select: $expert")
-        Intent(this.context, DetailActivity::class.java).apply {
-            putExtra("expert", expert)
-            startActivity(this)
-        }
     }
 
     private fun blog(expert: Expert2) {

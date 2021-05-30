@@ -3,6 +3,7 @@ package com.viper.module_policy
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
+import androidx.core.widget.addTextChangedListener
 import com.viper.lib_base.VerticalItemDecoration
 import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
@@ -38,6 +39,9 @@ class PolicyFragment : BaseFragment<FragmentPolicy2Binding>() {
                 }
                 refresh(cate, key)
             }
+        }
+        binding.policy2Header.policy2SelectText.addTextChangedListener {
+            refresh(it.toString())
         }
         binding.policy2Srl.setOnRefreshListener {
             val cate = binding.policy2Header.policy2SelectText.text.toString()

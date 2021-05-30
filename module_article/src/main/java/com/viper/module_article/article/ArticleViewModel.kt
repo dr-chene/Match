@@ -1,15 +1,14 @@
-package com.viper.lib_net.article
+package com.viper.module_article.article
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.viper.lib_base.BaseViewModel
-import com.viper.lib_net.bean.Article
 import com.viper.lib_net.request
 import com.viper.lib_net.result
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 /**
  * created by viper on 2021/5/28
@@ -26,11 +25,12 @@ open class ArticleViewModel<T: ArticleService>(
     fun refresh(cate: String, key: String? = null){
         refreshing.postValue(true)
         CoroutineScope(Dispatchers.IO).launch {
-            repository.getNews(cate, key).request().result({
-                refreshing.postValue(false)
-            }) {
-                _lists.postValue(it)
+            repository.getNews(cate, key).data?.let {
+                withContext(Dispatchers.Main){
+                    _lists.postValue(it)
+                }
             }
+            refreshing.postValue(false)
         }
     }
 }
