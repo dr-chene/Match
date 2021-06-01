@@ -10,4 +10,4 @@ import com.viper.module_tech.repository.TechRepository
  */
 class TechViewModel(
     repository: TechRepository
-) : com.viper.module_article.article.ArticleViewModel<TechService>(repository)
+) : ArticleViewModel<TechService, TechRepository>(repository)

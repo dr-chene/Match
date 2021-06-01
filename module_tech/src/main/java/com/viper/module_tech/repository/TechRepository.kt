@@ -9,4 +9,4 @@ import com.viper.module_tech.remote.TechService
  */
 class TechRepository(
     api: TechService
-) : com.viper.module_article.article.ArticleRepository<TechService>(api)
+) : ArticleRepository<TechService>(api)

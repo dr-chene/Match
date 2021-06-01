@@ -16,7 +16,6 @@ class ServiceActivity : BaseActivity<ActivityServiceBinding>() {
         title = null
         setSupportActionBar(binding.serviceToolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        binding.serviceChipAll.isChecked = true
         binding.serviceRv.adapter = adapter
     }
 

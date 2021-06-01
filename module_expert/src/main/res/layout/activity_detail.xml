@@ -5,65 +5,68 @@
     tools:context=".DetailActivity">
 
     <data>
-        <import type="android.view.View" />
+
         <variable
             name="expert"
             type="com.viper.module_expert.bean.Expert2" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:theme="@style/Theme.Match">
 
-        <ImageView
-            android:id="@+id/detail_ic_back"
-            android:layout_width="30dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginBottom="@dimen/toolbar_margin_bottom"
-            android:elevation="1dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_back_white"
-            app:layout_constraintBottom_toBottomOf="@id/detail_actionbar"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <View
-            android:id="@+id/detail_actionbar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="@drawable/bg_actionbar"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/toolbar_margin_bottom"
-            android:text="专家详情"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@id/detail_actionbar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@drawable/bg_actionbar"
+                android:fitsSystemWindows="true"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_constraintTop_toTopOf="parent">
 
-        <include
-            android:id="@+id/detail_head"
-            layout="@layout/recycle_item_expert2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:visibility="@{expert.isArticle ? View.GONE : View.VISIBLE}"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_actionbar" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:gravity="bottom"
+                    android:paddingBottom="10dp"
+                    android:text="专家详情"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </com.google.android.material.appbar.MaterialToolbar>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/detail_rv"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/detail_head"
-            tools:listitem="@layout/recycle_item_news" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <include
+                android:id="@+id/detail_head"
+                layout="@layout/recycle_item_expert3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_toolbar" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/detail_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/detail_head"
+                tools:listitem="@layout/recycle_item_news" />
+
+            <include
+                android:id="@+id/detail_empty"
+                layout="@layout/empty_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detail_rv" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </layout>

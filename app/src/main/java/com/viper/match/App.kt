@@ -21,7 +21,7 @@ import org.koin.core.logger.Level
  * created by viper on 2021/5/23
  * desc
  */
-class App: BaseApp() {
+class App : BaseApp() {
 
     override fun onCreate() {
         super.onCreate()
@@ -30,9 +30,11 @@ class App: BaseApp() {
         startKoin {
             androidLogger(level = Level.DEBUG)
             androidContext(this@App)
-            modules(appModule, netModule, homeModule, newsModule,
+            modules(
+                appModule, netModule, homeModule, newsModule,
                 policyModule, techModule, expertModule, serviceModule, footprintModule,
-                infoModule, loginModule)
+                infoModule, loginModule
+            )
         }
     }
 }

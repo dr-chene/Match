@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="expert"
+            type="com.viper.module_expert.bean.Expert2" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:theme="@style/Theme.Match">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+
+            <TextView
+                android:id="@+id/item_tv_area"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="地区："
+                android:layout_marginTop="10dp"
+                android:textColor="@color/grey_text"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                bindText="@{expert.area}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@id/item_tv_area"
+                app:layout_constraintStart_toEndOf="@id/item_tv_area"
+                app:layout_constraintTop_toTopOf="@id/item_tv_area" />
+
+            <TextView
+                android:id="@+id/item_tv_field"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="领域："
+                android:layout_marginTop="10dp"
+                android:textColor="@color/grey_text"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/item_tv_area"
+                app:layout_constraintTop_toBottomOf="@id/item_tv_area" />
+
+            <TextView
+                bindText="@{expert.field}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@id/item_tv_field"
+                app:layout_constraintStart_toEndOf="@id/item_tv_field"
+                app:layout_constraintTop_toTopOf="@id/item_tv_field" />
+
+            <TextView
+                android:id="@+id/item_tv_name"
+                bindText="@{expert.name}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.40"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_tv_field"
+                tools:text="名字" />
+
+            <TextView
+                android:id="@+id/item_tv_cert"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="认证："
+                android:textColor="@color/grey_text"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/expert_item_avatar"
+                app:layout_constraintTop_toBottomOf="@id/item_tv_name" />
+
+            <TextView
+                bindText="@{expert.cert}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@id/item_tv_cert"
+                app:layout_constraintStart_toEndOf="@id/item_tv_cert"
+                app:layout_constraintTop_toTopOf="@id/item_tv_cert" />
+
+            <TextView
+                android:id="@+id/item_tv_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="标签："
+                android:textColor="@color/grey_text"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/item_tv_cert"
+                app:layout_constraintTop_toBottomOf="@id/item_tv_cert" />
+
+            <TextView
+                bindText="@{expert.tag}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:layout_constraintBottom_toBottomOf="@id/item_tv_tag"
+                app:layout_constraintStart_toEndOf="@id/item_tv_tag"
+                app:layout_constraintTop_toTopOf="@id/item_tv_tag" />
+
+            <ImageView
+                android:id="@+id/expert_item_avatar"
+                bindImg="@{expert.image}"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/item_tv_name"
+                app:layout_constraintBottom_toBottomOf="@id/item_tv_tag"
+                tools:src="@drawable/nian" />
+
+            <TextView
+                android:id="@+id/expert_tv_advise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="咨询"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/expert_item_avatar"
+                app:layout_constraintStart_toStartOf="@id/expert_item_avatar"
+                app:layout_constraintTop_toBottomOf="@id/expert_item_avatar" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/expert_item_data"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:minHeight="150dp"
+                app:layout_constraintBottom_toBottomOf="@id/expert_tv_info"
+                app:layout_constraintTop_toBottomOf="@id/expert_tv_advise"
+                app:shapeAppearanceOverlay="@style/CutBorder"
+                app:strokeColor="@color/black"
+                app:strokeWidth="1dp" />
+
+            <TextView
+                android:id="@+id/expert_tv_info"
+                bindText="@{expert.resume}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="25dp"
+                android:paddingBottom="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/expert_tv_advise"
+                tools:text="于2010年以优异的成绩获得维拉诺瓦大学法学院的法律博士学位在校期间她曾任维拉诺瓦大学法律评论的成员此外还同时拥有新加坡国立大学国际商法法律硕士学位以及德克萨斯AM大学金融学士学位" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

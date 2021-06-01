@@ -9,4 +9,4 @@ import com.viper.module_policy.remote.PolicyService
  */
 class PolicyRepository(
     api: PolicyService
-): com.viper.module_article.article.ArticleRepository<PolicyService>(api)
+): ArticleRepository<PolicyService>(api)

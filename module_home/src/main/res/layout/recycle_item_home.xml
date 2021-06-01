@@ -3,51 +3,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
         <variable
-            name="item"
-            type="com.viper.module_home.bean.HomeItem" />
+            name="article"
+            type="com.viper.module_article.article.Article" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:theme="@style/Theme.Match">
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/home_rv_avatar"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:src="@drawable/nian"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:shapeAppearanceOverlay="@style/Avatar" />
-
-        <TextView
-            android:id="@+id/home_rv_field"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@{item.filed, default=领域}"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/home_rv_avatar"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_margin="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:text="@{item.name, default=姓名}"
-            android:textSize="20sp"
-            app:layout_constraintStart_toEndOf="@id/home_rv_field"
-            app:layout_constraintTop_toTopOf="@id/home_rv_field" />
+            <TextView
+                android:id="@+id/article_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{article.category, default=进出口产销}"
+                android:textColor="@color/blue_600"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="adsngfjknfdiuenkjasdclknnvlANOFLAIOILENIbqnwilasngdflawenflsdnfolasdgvlka;gvaopisdfoas;dasdgl;bh"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/home_rv_field"
-            app:layout_constraintTop_toBottomOf="@id/home_rv_field" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/article_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{article.title, default=月份国民经济持续稳定恢复}"
+                android:textColor="?colorPrimary"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/article_category" />
+
+            <TextView
+                android:id="@+id/article_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@{article.date, default=2021_5_30}"
+                android:textColor="@color/blue_700"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/article_title" />
+
+            <TextView
+                android:id="@+id/article_author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="@{article.author, default=国家统计局}"
+                android:textColor="@color/blue_700"
+                app:layout_constraintEnd_toStartOf="@id/article_date"
+                app:layout_constraintTop_toTopOf="@id/article_date" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

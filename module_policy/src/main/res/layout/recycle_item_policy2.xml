@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="policy"
             type="com.viper.module_article.article.Article" />
@@ -22,33 +24,36 @@
 
             <TextView
                 android:id="@+id/policy2_item_title"
+                bindText="@{policy.title}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@{policy.title, default=汽车零部件再制造规范管理暂行办法}"
                 android:textColor="@color/blue_600"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/policy2_item_author" />
+                app:layout_constraintTop_toBottomOf="@id/policy2_item_author"
+                tools:text="汽车零部件再制造规范管理暂行办法" />
 
             <TextView
                 android:id="@+id/policy2_item_author"
+                bindText="@{policy.author}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="@{policy.author, default=国家发改委}"
                 android:textColor="@color/blue_800"
                 app:layout_constraintEnd_toStartOf="@id/policy2_item_date"
-                app:layout_constraintTop_toTopOf="@id/policy2_item_date" />
+                app:layout_constraintTop_toTopOf="@id/policy2_item_date"
+                tools:text="国家发改委" />
 
             <TextView
                 android:id="@+id/policy2_item_date"
+                bindText="@{policy.date}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="@{policy.date, default=2021_5_28}"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2021_5_28" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

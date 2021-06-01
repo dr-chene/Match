@@ -1,16 +1,18 @@
 package com.viper.module_news
 
+import android.view.View
 import com.google.android.material.tabs.TabLayout
 import com.viper.lib_base.VerticalItemDecoration
 import com.viper.lib_base.dip2px
 import com.viper.lib_base.view.BaseFragment
 import com.viper.module_news.adapter.NewsRecyclerViewAdapter
+import com.viper.module_news.databinding.FragmentNews3Binding
 import com.viper.module_news.databinding.FragmentNewsBinding
 import com.viper.module_news.viewmodel.NewsViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class NewsFragment : BaseFragment<FragmentNewsBinding>() {
+class NewsFragment : BaseFragment<FragmentNews3Binding>() {
 
     private val viewModel by viewModel<NewsViewModel>()
     private val adapter by inject<NewsRecyclerViewAdapter>()
@@ -52,11 +54,12 @@ class NewsFragment : BaseFragment<FragmentNewsBinding>() {
         }
     }
 
-    override fun getContentViewResId() = R.layout.fragment_news
+    override fun getContentViewResId() = R.layout.fragment_news3
 
     override fun onSubscribe() {
         viewModel.lists.observe(this) {
             adapter.submitList(it)
+            binding.newsEmpty.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
         }
         viewModel.isRefreshing.observe(this) {
             if (it && !binding.newsSrl.isRefreshing) {

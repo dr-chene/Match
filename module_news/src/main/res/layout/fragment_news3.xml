@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/news_srl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.Match">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/news_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tabMode="fixed">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="进出口" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地区" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="企业动态" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="产销" />
+                </com.google.android.material.tabs.TabLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/news_search_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toStartOf="@id/news_search_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/news_tabs">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/news_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="输入点什么吧..."
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/news_search_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="搜索"
+                    app:layout_constraintBottom_toBottomOf="@id/news_search_layout"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <ImageView
+                    android:id="@+id/home_ic_enterprise"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_place_holder"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toStartOf="@id/home_ic_area"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/news_search_layout" />
+
+                <TextView
+                    android:id="@+id/home_tv_enterprise"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="企业动态"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/home_ic_enterprise"
+                    app:layout_constraintStart_toStartOf="@id/home_ic_enterprise"
+                    app:layout_constraintTop_toBottomOf="@id/home_ic_enterprise" />
+
+                <ImageView
+                    android:id="@+id/home_ic_area"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_place_holder"
+                    app:layout_constraintBottom_toBottomOf="@id/home_ic_enterprise"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toStartOf="@id/home_ic_export"
+                    app:layout_constraintStart_toEndOf="@id/home_ic_enterprise"
+                    app:layout_constraintTop_toTopOf="@id/home_ic_enterprise" />
+
+                <TextView
+                    android:id="@+id/home_tv_area"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="地区"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/home_ic_area"
+                    app:layout_constraintStart_toStartOf="@id/home_ic_area"
+                    app:layout_constraintTop_toTopOf="@id/home_tv_enterprise" />
+
+                <ImageView
+                    android:id="@+id/home_ic_export"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:src="@drawable/ic_place_holder"
+                    app:layout_constraintBottom_toBottomOf="@id/home_ic_enterprise"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toStartOf="@id/home_ic_produce"
+                    app:layout_constraintStart_toEndOf="@id/home_ic_area"
+                    app:layout_constraintTop_toTopOf="@id/home_ic_enterprise" />
+
+                <TextView
+                    android:id="@+id/home_tv_export"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="进出口产销"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/home_ic_export"
+                    app:layout_constraintStart_toStartOf="@id/home_ic_export"
+                    app:layout_constraintTop_toTopOf="@id/home_tv_enterprise" />
+
+                <ImageView
+                    android:id="@+id/home_ic_produce"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_place_holder"
+                    app:layout_constraintBottom_toBottomOf="@id/home_ic_enterprise"
+                    app:layout_constraintDimensionRatio="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/home_ic_export"
+                    app:layout_constraintTop_toTopOf="@id/home_ic_enterprise" />
+
+                <TextView
+                    android:id="@+id/home_tv_produce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="数据统计"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@id/home_ic_produce"
+                    app:layout_constraintStart_toStartOf="@id/home_ic_produce"
+                    app:layout_constraintTop_toTopOf="@id/home_tv_enterprise" />
+
+                <TextView
+                    android:id="@+id/home_ic_aid"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_text_bar"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="广告"
+                    app:layout_constraintEnd_toEndOf="@id/home_ic_produce"
+                    app:layout_constraintStart_toStartOf="@id/home_ic_enterprise"
+                    app:layout_constraintTop_toBottomOf="@id/home_tv_enterprise" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/news_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toBottomOf="@id/home_ic_aid"
+                    tools:listitem="@layout/recycle_item_news" />
+
+                <include
+                    android:id="@+id/news_empty"
+                    layout="@layout/empty_data"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/news_rv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</layout>

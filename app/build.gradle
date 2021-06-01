@@ -20,6 +20,15 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += [
+                        "room.schemaLocation":"$projectDir/schemas".toString(),
+                        "room.incremental":"true",
+                        "room.expandProjection":"true"]
+            }
+        }
     }
 
     buildTypes {
@@ -40,4 +49,9 @@ android {
 dependencies {
     implementation project(path: ':module_splash')
     implementation project(path: ':module_main')
+
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // optional - Test helpers
+    testImplementation "androidx.room:room-testing:$room_version"
 }

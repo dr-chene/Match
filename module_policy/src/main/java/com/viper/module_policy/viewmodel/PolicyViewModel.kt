@@ -11,4 +11,4 @@ import com.viper.module_policy.repository.PolicyRepository
  */
 class PolicyViewModel(
     repository: PolicyRepository
-): com.viper.module_article.article.ArticleViewModel<PolicyService>(repository)
+): ArticleViewModel<PolicyService, PolicyRepository>(repository)

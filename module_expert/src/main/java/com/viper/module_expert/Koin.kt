@@ -20,7 +20,7 @@ import retrofit2.Retrofit
  */
 val expertModule = module {
     single { Expert2ArticleRecyclerViewAdapter() }
-    single { (blog: (Expert2) -> Unit) -> Expert2RecyclerViewAdapter(blog) }
+    single { Expert2RecyclerViewAdapter() }
     single { get<Retrofit>().create(Expert2Service::class.java) }
     single { Expert2Repository(get()) }
     viewModel { Expert2ViewModel(get()) }

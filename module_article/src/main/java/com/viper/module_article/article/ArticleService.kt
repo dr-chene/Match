@@ -8,6 +8,7 @@ import okhttp3.RequestBody
  * desc
  */
 interface ArticleService {
+
     suspend fun getArticles(
         json: RequestBody
     ): NetResponse<List<Article>>

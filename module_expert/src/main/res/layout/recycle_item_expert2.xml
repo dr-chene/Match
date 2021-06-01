@@ -67,7 +67,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="@{expert.resume, default=于2010年以优异的成绩获得维拉诺瓦大学法学院的法律博士学位在校期间她曾任维拉诺瓦大学法律评论的成员此外还同时拥有新加坡国立大学国际商法法律硕士学位以及德克萨斯AM大学金融学士学位。}"
+                android:text="@{expert.resume, default=于2010年以优异的成绩获得维拉诺瓦大学法学院的法律博士学位在校期间她曾任维拉诺瓦大学法律评论的成员此外还同时拥有新加坡国立大学国际商法法律硕士学位以及德克萨斯AM大学金融学士学位}"
                 android:textColor="@color/blue_800"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@id/expert2_expert_resume_head" />

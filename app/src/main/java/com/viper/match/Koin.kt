@@ -8,4 +8,5 @@ import org.koin.dsl.module
  */
 val appModule = module {
     single { AppDataBase.buildDatabase(get()) }
+    single { get<AppDataBase>().getArticleDao() }
 }

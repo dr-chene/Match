@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="article"
             type="com.viper.module_article.article.Article" />
@@ -21,36 +23,39 @@
 
             <TextView
                 android:id="@+id/recycle_item_news_title"
+                bindText="@{article.title}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{article.title, default=月汽车产销等主要指标超过2019年同期}"
                 android:textColor="@color/blue_800"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="月汽车产销等主要指标超过2019年同期" />
 
             <TextView
                 android:id="@+id/recycle_item_news_date"
+                bindText="@{article.date}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
-                android:text="@{article.date, default=2021_03_13}"
                 android:textColor="?colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/recycle_item_news_title"
                 app:layout_constraintTop_toBottomOf="@id/recycle_item_news_title"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                tools:text="2021_03_13" />
 
             <TextView
                 android:id="@+id/recycle_item_news_author"
+                bindText="@{article.author}"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
-                android:text="@{article.author, default=长城汽车官微}"
                 android:textColor="@color/blue_800"
                 app:layout_constraintEnd_toStartOf="@id/recycle_item_news_date"
-                app:layout_constraintTop_toTopOf="@id/recycle_item_news_date"/>
+                app:layout_constraintTop_toTopOf="@id/recycle_item_news_date"
+                tools:text="长城汽车官微" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </layout>

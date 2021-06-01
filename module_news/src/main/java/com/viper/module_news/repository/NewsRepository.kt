@@ -3,6 +3,7 @@ package com.viper.module_news.repository
 import com.viper.module_article.article.Article
 import com.viper.lib_net.bean.NetResponse
 import com.viper.lib_net.toJson
+import com.viper.module_article.article.ArticleRepository
 import com.viper.module_news.remote.NewsService
 import org.json.JSONObject
 
@@ -11,14 +12,5 @@ import org.json.JSONObject
  * desc
  */
 class NewsRepository(
-    private val api: NewsService
-) {
-
-    suspend fun getNews(category: String, title: String? = null): NetResponse<List<com.viper.module_article.article.Article>> {
-        JSONObject().apply {
-            put("category", category)
-            if (title != null) put("title", title)
-            return api.getNews(toJson())
-        }
-    }
-}
+    api: NewsService
+): ArticleRepository<NewsService>(api)

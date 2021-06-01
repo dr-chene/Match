@@ -10,4 +10,4 @@ import com.viper.module_expert.repository.Expert2ArticleRepository
  */
 class Expert2ArticleViewModel(
     repository: Expert2ArticleRepository
-) : com.viper.module_article.article.ArticleViewModel<Expert2ArticleService>(repository)
+) : ArticleViewModel<Expert2ArticleService, Expert2ArticleRepository>(repository)

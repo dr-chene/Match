@@ -11,10 +11,10 @@ import retrofit2.http.POST
  * created by viper on 2021/5/28
  * desc
  */
-interface PolicyService: com.viper.module_article.article.ArticleService {
+interface PolicyService: ArticleService {
 
     @POST("/blog/getPolicyPlateBlogs")
     override suspend fun getArticles(
         @Body json: RequestBody
-    ): NetResponse<List<com.viper.module_article.article.Article>>
+    ): NetResponse<List<Article>>
 }

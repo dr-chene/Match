@@ -9,5 +9,5 @@ import android.telephony.mbms.StreamingServiceInfo
 data class SimpleExpert2(
     val name: String,
     val identification: String,
-    val image: String?
+    val image: String
 )

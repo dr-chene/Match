@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="PolicyHead">
+    <style name="PolicyBgStyle">
         <item name="cornerFamilyTopLeft">cut</item>
-        <item name="cornerSizeTopLeft">@dimen/policy_head_cut_size</item>
+        <item name="cornerSizeTopLeft">50dp</item>
         <item name="cornerFamilyTopRight">cut</item>
-        <item name="cornerSizeTopRight">@dimen/policy_head_cut_size</item>
-    </style>
-    <style name="PolicyContent">
+        <item name="cornerSizeTopRight">50dp</item>
         <item name="cornerFamilyBottomLeft">cut</item>
         <item name="cornerSizeBottomLeft">30dp</item>
         <item name="cornerFamilyBottomRight">cut</item>

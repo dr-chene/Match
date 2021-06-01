@@ -1,5 +1,6 @@
 package com.viper.module_tech
 
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.widget.addTextChangedListener
@@ -9,26 +10,38 @@ import com.viper.lib_base.view.BaseFragment
 import com.viper.lib_net.showToast
 import com.viper.module_tech.adapter.TechRecyclerViewAdapter
 import com.viper.module_tech.databinding.FragmentTech2Binding
+import com.viper.module_tech.databinding.FragmentTech3Binding
 import com.viper.module_tech.viewmodel.TechViewModel
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TechFragment : BaseFragment<FragmentTech2Binding>() {
+class TechFragment : BaseFragment<FragmentTech3Binding>() {
 
     private val viewModel by viewModel<TechViewModel>()
     private val adapter by inject<TechRecyclerViewAdapter>()
     private val categories by lazy {
         listOf("团体标准", "标准动态", "国家标准", "国际标准")
     }
-
+    private val countries by lazy {
+        listOf("东亚", "新加坡","马来西亚","印度尼西亚","缅甸","泰国","老挝","柬埔寨","越南","文莱","菲律宾")
+    }
+    private val types by lazy {
+        listOf("整车", "车厢", "车门", "车型", "汽车零部件", "刹车系统配件")
+    }
     override fun onInitView() {
-        binding.tech2Rv.adapter = adapter
-        binding.tech2Rv.addItemDecoration(VerticalItemDecoration(dip2px(10F, this.requireContext())))
+        binding.tech3Rv.adapter = adapter
+        binding.tech3Rv.addItemDecoration(VerticalItemDecoration(dip2px(10F, this.requireContext())))
         initCate()
+        (binding.techSelectCountry.techSelectInput.editText as AutoCompleteTextView).setAdapter(
+            ArrayAdapter(this.requireContext(), R.layout.list_item, countries)
+        )
+        (binding.techSelectType.techSelectInput.editText as AutoCompleteTextView).setAdapter(
+            ArrayAdapter(this.requireContext(), R.layout.list_item, types)
+        )
     }
 
     override fun onInitAction() {
-        binding.tech2Header.apply {
+        binding.tech3Header.apply {
             tech2BtnSearch.setOnClickListener {
                 val cate = tech2SelectText.text.toString()
                 val key = tech2SearchText.text.toString()
@@ -39,25 +52,29 @@ class TechFragment : BaseFragment<FragmentTech2Binding>() {
                 refresh(cate, key)
             }
         }
-        binding.tech2Header.tech2SelectText.addTextChangedListener {
+        binding.tech3Header.tech2SelectText.addTextChangedListener {
             refresh(it.toString())
         }
-        binding.tech2Srl.setOnRefreshListener {
-            val cate = binding.tech2Header.tech2SelectText.text.toString()
+        binding.tech3Srl.setOnRefreshListener {
+            val cate = binding.tech3Header.tech2SelectText.text.toString()
             if (cate.isBlank()) refresh(categories.random())
             else refresh(cate)
+        }
+        binding.tech3TvSearch.setOnClickListener {
+            "功能暂未实现".showToast()
         }
         refresh(categories.random())
     }
 
-    override fun getContentViewResId() = R.layout.fragment_tech2
+    override fun getContentViewResId() = R.layout.fragment_tech3
 
     override fun onSubscribe() {
         viewModel.isRefreshing.observe(this) {
-            binding.tech2Srl.isRefreshing = it
+            binding.tech3Srl.isRefreshing = it
         }
         viewModel.lists.observe(this) {
             adapter.submitList(it)
+            binding.techEmpty.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
         }
     }
 
@@ -67,7 +84,7 @@ class TechFragment : BaseFragment<FragmentTech2Binding>() {
     }
 
     private fun initCate() {
-        (binding.tech2Header.tech2Select.editText as AutoCompleteTextView).setAdapter(
+        (binding.tech3Header.tech2Select.editText as AutoCompleteTextView).setAdapter(
             ArrayAdapter(this.requireContext(), R.layout.list_item, categories)
         )
     }
