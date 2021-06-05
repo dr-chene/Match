@@ -1,7 +1,7 @@
 <resources>
     <string name="nav_home">首页</string>
-    <string name="nav_info">信息资料</string>
-    <string name="nav_policy">政策法规</string>
-    <string name="nav_tech">技术标准</string>
-    <string name="nav_expert">专家对接</string>
+    <string name="nav_news">信息资料</string>
+    <string name="nav_policy_tech">政策标准</string>
+    <string name="nav_trade">交易中心</string>
+    <string name="nav_service">服务方案</string>
 </resources>

@@ -39,12 +39,12 @@ android {
 
 dependencies {
     api project(path: ':module_home')
-    api project(path: ':module_policy')
-    api project(path: ':module_tech')
     api project(path: ':module_expert')
     api project(path: ':module_news')
     api project(path: ':module_service')
     api project(path: ':module_info')
     api project(path: ':module_footprint')
     api project(path: ':module_login')
+    api project(path: ':module_trade')
+    api project(path: ':module_policy_tech')
 }

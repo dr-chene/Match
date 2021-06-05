@@ -22,9 +22,11 @@
             <option value="$PROJECT_DIR$/module_main" />
             <option value="$PROJECT_DIR$/module_news" />
             <option value="$PROJECT_DIR$/module_policy" />
+            <option value="$PROJECT_DIR$/module_policy_tech" />
             <option value="$PROJECT_DIR$/module_service" />
             <option value="$PROJECT_DIR$/module_splash" />
             <option value="$PROJECT_DIR$/module_tech" />
+            <option value="$PROJECT_DIR$/module_trade" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

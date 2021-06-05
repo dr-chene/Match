@@ -38,6 +38,6 @@ android {
 }
 
 dependencies {
-    implementation project(path: ':module_article')
+    api project(path: ':module_article')
 }
 

@@ -14,8 +14,8 @@ import retrofit2.Retrofit
  * desc
  */
 val policyModule = module {
-    single { PolicyRecyclerViewAdapter() }
-    single { get<Retrofit>().create(PolicyService::class.java) }
-    single { PolicyRepository(get()) }
-    viewModel { PolicyViewModel(get()) }
+//    single { PolicyRecyclerViewAdapter() }
+//    single { get<Retrofit>().create(PolicyService::class.java) }
+//    single { PolicyRepository(get()) }
+//    viewModel { PolicyViewModel(get()) }
 }

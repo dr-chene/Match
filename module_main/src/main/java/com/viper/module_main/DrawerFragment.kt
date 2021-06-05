@@ -33,11 +33,11 @@ class DrawerFragment : BaseFragment<FragmentDrawerBinding>() {
                         "功能暂未开放".showToast()
                         true
                     }
-                    R.id.drawer_my_service -> {
-                        navActivity<ServiceActivity>()
+                    R.id.drawer_my_commitment -> {
+                        "功能暂未开放".showToast()
                         true
                     }
-                    R.id.drawer_my_commitment -> {
+                    R.id.drawer_my_car_company -> {
                         "功能暂未开放".showToast()
                         true
                     }

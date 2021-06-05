@@ -13,7 +13,10 @@ import com.viper.module_home.HomeFragment
 import com.viper.module_main.databinding.FragmentMainBinding
 import com.viper.module_news.NewsFragment
 import com.viper.module_policy.PolicyFragment
+import com.viper.module_policy_tech.PolicyTechFragment
+import com.viper.module_service.ServiceFragment
 import com.viper.module_tech.TechFragment
+import com.viper.module_trade.TradeFragment
 
 /**
  * created by viper on 2021/5/30
@@ -32,10 +35,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                 override fun createFragment(position: Int): Fragment {
                     return when (position) {
                         0 -> HomeFragment()
-                        1 -> NewsFragment()
-                        2 -> PolicyFragment()
-                        3 -> TechFragment()
-                        4 -> ExpertFragment()
+                        1 -> TradeFragment()
+                        2 -> NewsFragment()
+                        3 -> ServiceFragment()
+                        4 -> PolicyTechFragment()
                         else -> HomeFragment()
                     }
                 }
@@ -51,20 +54,20 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
                     nav(0, R.id.nav_home)
                     true
                 }
-                R.id.nav_info -> {
-                    nav(1, R.id.nav_info)
+                R.id.nav_trade -> {
+                    nav(1, R.id.nav_trade)
                     true
                 }
-                R.id.nav_policy -> {
-                    nav(2, R.id.nav_policy)
+                R.id.nav_news -> {
+                    nav(2, R.id.nav_news)
                     true
                 }
-                R.id.nav_tech -> {
-                    nav(3, R.id.nav_tech)
+                R.id.nav_service -> {
+                    nav(3, R.id.nav_service)
                     true
                 }
-                R.id.nav_expert -> {
-                    nav(4, R.id.nav_expert)
+                R.id.nav_policy_tech -> {
+                    nav(4, R.id.nav_policy_tech)
                     true
                 }
                 else -> false
@@ -97,10 +100,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         }
         binding.mainViewPager.setCurrentItem(pos, false)
         binding.mainTitle.text = when (pos) {
-            1 -> "信息资料"
-            2 -> "政策法规"
-            3 -> "技术标准"
-            4 -> "专家对接"
+            1 -> "交易中心"
+            2 -> "信息资料"
+            3 -> "服务方案"
+            4 -> "政策标准"
             else -> null
         }
         select = id

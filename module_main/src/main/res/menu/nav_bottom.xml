@@ -6,22 +6,22 @@
         android:icon="@drawable/ic_home"/>
 
     <item
-        android:id="@+id/nav_info"
-        android:title="@string/nav_info"
+        android:id="@+id/nav_trade"
+        android:title="@string/nav_trade"
+        android:icon="@drawable/ic_trade"/>
+
+    <item
+        android:id="@+id/nav_news"
+        android:title="@string/nav_news"
         android:icon="@drawable/ic_news"/>
 
     <item
-        android:id="@+id/nav_policy"
-        android:title="@string/nav_policy"
+        android:id="@+id/nav_service"
+        android:title="@string/nav_service"
+        android:icon="@drawable/ic_service"/>
+
+    <item
+        android:id="@+id/nav_policy_tech"
+        android:title="@string/nav_policy_tech"
         android:icon="@drawable/ic_policy"/>
-
-    <item
-        android:id="@+id/nav_tech"
-        android:title="@string/nav_tech"
-        android:icon="@drawable/ic_tech"/>
-
-    <item
-        android:id="@+id/nav_expert"
-        android:title="@string/nav_expert"
-        android:icon="@drawable/ic_expert"/>
 </menu>

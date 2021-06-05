@@ -66,24 +66,6 @@
             app:layout_constraintTop_toBottomOf="@id/footprint_tv_buy" />
 
         <TextView
-            android:id="@+id/footprint_tv_plan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="规划记录"
-            android:textSize="@dimen/footprint_text_size"
-            app:layout_constraintStart_toStartOf="@id/footprint_tv_search"
-            app:layout_constraintTop_toBottomOf="@id/footprint_line_2" />
-
-        <View
-            android:id="@+id/footprint_line_3"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/footprint_line_height"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/bg_high_line"
-            app:layout_constraintTop_toBottomOf="@id/footprint_tv_plan" />
-
-        <TextView
             android:id="@+id/footprint_tv_bill"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -91,7 +73,7 @@
             android:text="账单"
             android:textSize="@dimen/footprint_text_size"
             app:layout_constraintStart_toStartOf="@id/footprint_tv_search"
-            app:layout_constraintTop_toBottomOf="@id/footprint_line_3" />
+            app:layout_constraintTop_toBottomOf="@id/footprint_line_2" />
 
         <View
             android:id="@+id/footprint_line_4"

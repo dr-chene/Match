@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.Match">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:id="@+id/tv_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="买卖双方需提供资料"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_enterprise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="公司"
+                android:textColor="@color/grey_text"
+                app:layout_constraintEnd_toEndOf="@id/tv_1"
+                app:layout_constraintStart_toStartOf="@id/tv_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_info" />
+
+            <TextView
+                android:id="@+id/tv_person"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="个人"
+                android:textColor="@color/grey_text"
+                app:layout_constraintEnd_toEndOf="@id/tv_2"
+                app:layout_constraintStart_toStartOf="@id/tv_2"
+                app:layout_constraintTop_toTopOf="@id/tv_enterprise" />
+
+            <TextView
+                android:id="@+id/tv_buyer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="买家"
+                android:textColor="@color/grey_text"
+                app:layout_constraintBottom_toBottomOf="@id/tv_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_2" />
+
+            <TextView
+                android:id="@+id/tv_seller"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="卖家"
+                android:textColor="@color/grey_text"
+                app:layout_constraintBottom_toBottomOf="@id/tv_4"
+                app:layout_constraintStart_toStartOf="@id/tv_buyer"
+                app:layout_constraintTop_toTopOf="@id/tv_4" />
+
+            <TextView
+                android:id="@+id/tv_1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/green_400"
+                android:gravity="center"
+                android:text="企业营业执照"
+                android:translationZ="1dp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_2"
+                app:layout_constraintEnd_toStartOf="@id/tv_2"
+                app:layout_constraintStart_toEndOf="@id/tv_buyer"
+                app:layout_constraintTop_toTopOf="@id/tv_2" />
+
+            <TextView
+                android:id="@+id/tv_2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/green_400"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="身份证\n个体户营业执照"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_1"
+                app:layout_constraintTop_toBottomOf="@id/tv_person" />
+
+            <TextView
+                android:id="@+id/tv_3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/green_400"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="企业营业执照\n专利注册证原件"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toStartOf="@id/tv_4"
+                app:layout_constraintStart_toEndOf="@id/tv_seller"
+                app:layout_constraintTop_toTopOf="@id/tv_4" />
+
+            <TextView
+                android:id="@+id/tv_4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/green_400"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="身份证\n专利注册原件"
+                android:translationZ="1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_3"
+                app:layout_constraintTop_toBottomOf="@id/tv_2" />
+
+            <TextView
+                android:id="@+id/tv_platform_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="平台提供:"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_platform"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_platform" />
+
+            <TextView
+                android:id="@+id/tv_platform"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/green_400"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                android:text="专利代理委托书\n转让申请书\n转让协议"
+                android:translationZ="1dp"
+                app:layout_constraintStart_toStartOf="@id/tv_transfer"
+                app:layout_constraintTop_toBottomOf="@id/tv_4" />
+
+            <TextView
+                android:id="@+id/tv_transfer_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="过户后您将获得:"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@id/tv_transfer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_transfer" />
+
+            <TextView
+                android:id="@+id/tv_transfer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/green_400"
+                android:paddingStart="20dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="20dp"
+                android:paddingBottom="5dp"
+                android:text="手续合格通知书\n专利证书\n专利登记簿副本"
+                android:translationZ="1dp"
+                app:layout_constraintStart_toEndOf="@id/tv_transfer_head"
+                app:layout_constraintTop_toBottomOf="@id/tv_platform" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

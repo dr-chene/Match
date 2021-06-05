@@ -1,6 +1,7 @@
 package com.viper.lib_net
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.coroutines.CoroutineScope
@@ -18,13 +19,17 @@ import org.koin.java.KoinJavaComponent
 private var toast: Toast? = null
 
 fun String?.showToast() {
-    this?.let {
-        CoroutineScope(Dispatchers.Main).launch {
-            toast?.cancel()
-            toast = Toast.makeText(KoinJavaComponent.get(Context::class.java), it, Toast.LENGTH_SHORT)
-            toast?.show()
-        }
+    this ?: return
+    CoroutineScope(Dispatchers.Main).launch {
+        toast?.cancel()
+        toast = Toast.makeText(KoinJavaComponent.get(Context::class.java), this@showToast, Toast.LENGTH_SHORT)
+        toast?.show()
     }
+}
+
+fun String?.log(){
+    this ?: return
+    Log.d("TAG_", this)
 }
 
 private fun RecyclerView.isSlideToBottom() =

@@ -89,7 +89,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         CoroutineScope(Dispatchers.IO).launch {
             viewModel.login(username, password).request().result {
                 token = it
-                if (it != null) MmkvUtils.saveToken(it)
+                if (it != null)MmkvUtils.saveToken(it)
                 "登录成功".showToast()
                 loginSuccess()
             }
@@ -105,6 +105,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
     }
 
     private fun loginSuccess() {
-        onBackPressed()
+        finish()
     }
 }

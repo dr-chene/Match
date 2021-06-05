@@ -17,63 +17,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.tabs.TabLayout
-                    android:id="@+id/news_tabs"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:tabMode="fixed">
-
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="进出口" />
-
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="地区" />
-
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="企业动态" />
-
-                    <com.google.android.material.tabs.TabItem
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="产销" />
-                </com.google.android.material.tabs.TabLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/news_search_layout"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    app:layout_constraintEnd_toStartOf="@id/news_search_btn"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/news_tabs">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/news_search"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="输入点什么吧..."
-                        android:singleLine="true" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/news_search_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:text="搜索"
-                    app:layout_constraintBottom_toBottomOf="@id/news_search_layout"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
                 <ImageView
                     android:id="@+id/home_ic_enterprise"
                     android:layout_width="0dp"
@@ -85,7 +28,7 @@
                     app:layout_constraintEnd_toStartOf="@id/home_ic_area"
                     app:layout_constraintHorizontal_chainStyle="spread_inside"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/news_search_layout" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/home_tv_enterprise"
@@ -175,6 +118,64 @@
                     app:layout_constraintStart_toStartOf="@id/home_ic_enterprise"
                     app:layout_constraintTop_toBottomOf="@id/home_tv_enterprise" />
 
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/news_tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/home_ic_aid"
+                    android:layout_marginTop="10dp"
+                    app:tabMode="fixed">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="进出口" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地区" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="企业动态" />
+
+                    <com.google.android.material.tabs.TabItem
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="产销" />
+                </com.google.android.material.tabs.TabLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/news_search_layout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:layout_constraintEnd_toStartOf="@id/news_search_btn"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/news_tabs">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/news_search"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="输入点什么吧..."
+                        android:singleLine="true" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/news_search_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="搜索"
+                    app:layout_constraintBottom_toBottomOf="@id/news_search_layout"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/news_rv"
                     android:layout_width="match_parent"
@@ -183,7 +184,7 @@
                     android:layout_weight="1"
                     android:overScrollMode="never"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintTop_toBottomOf="@id/home_ic_aid"
+                    app:layout_constraintTop_toBottomOf="@id/news_search_layout"
                     tools:listitem="@layout/recycle_item_news" />
 
                 <include
